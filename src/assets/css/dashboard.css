@@ -1,0 +1,10 @@
+app-dashboard-charts {
+  width: 100%;
+  display: flex;
+}
+
+@media (max-width: 1050px) {
+  app-dashboard-charts {
+    flex-wrap: wrap;
+  }
+}

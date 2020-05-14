@@ -1,0 +1,64 @@
+.popup__header {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #484848;
+  width: 95%;
+  margin-bottom: 23px
+}
+
+.popup__text {
+  font-family: Roboto, sans-serif;
+
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #484848;
+}
+
+.popup {
+  padding: 30px 60px;
+}
+
+.popup .post__author {
+  padding: 50px 0px 30px;
+}
+
+.popup__close {
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #ECECEC;
+}
+
+.popup__close-button {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: 0;
+  background: #6883E4;
+  border-radius: 5px;
+  padding: 10px 40px;
+}
+
+.popup__close-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.popup__img {
+  border-radius: 5px 5px 0 0;
+  margin: -30px -60px 20px;
+  width: calc(100% + 120px);
+  height: 200px;
+  border: 0;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,183 @@
+.projects__header-text, .projects__header-text-2 {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F5F5F5;
+  font-family: Montserrat, sans-serif;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #C4C4C4;
+}
+
+.projects__header-text-2 {
+  display: none;
+}
+
+.projects__item-text {
+  position: relative;
+  border-bottom: 1px solid #F5F5F5;
+  font-family: Roboto, sans-serif;
+
+
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 9px;
+
+  color: #484848;
+}
+
+.projects__item-sub-text {
+  display: none;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+
+  font-size: 10px;
+  line-height: 10px;
+  color: #C4C4C4;
+}
+
+.projects__item-text svg {
+  cursor: pointer;
+  position: absolute;
+  top: 9px;
+  right: 5px;
+}
+
+.projects__item-text:last-child {
+  border-bottom: 0;
+}
+
+.projects {
+  display: flex;
+}
+
+.projects__project {
+  text-align: center;
+  width: 20%;
+}
+
+.projects__company {
+  width: 33%;
+}
+
+.projects__status {
+  width: 32%;
+}
+
+.projects__realise-date {
+  width: 15%;
+  text-align: right;
+}
+
+.status__wrapper {
+  display: flex;
+}
+
+.status__value {
+  width: 20%;
+}
+
+.status__gauge {
+  width: 80%;
+  position: relative;
+}
+
+.status__filled,
+.status__line {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #F5F5F5;
+  top: 6px;
+  position: relative;
+}
+
+.status__line {
+  width: 100%;
+}
+
+.status__filled {
+  background-color: #6883E4;
+  position: absolute;
+}
+
+.padding-right {
+  padding-right: 30px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .padding-right {
+    padding-right: 0;
+  }
+
+  .projects__item-text {
+    padding-bottom: 20px;
+  }
+
+  .projects__company {
+    display: none;
+  }
+
+  .projects__status {
+    width: 50%;
+  }
+
+  .projects__item-sub-text {
+    top: 27px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  .projects__realise-date {
+    width: 28%;
+  }
+}
+
+@media (max-width: 800px) {
+  .projects__project {
+    width: 40%;
+    text-align: left;
+  }
+
+  .projects__header-text-2 {
+    display: block;
+  }
+
+  .projects__realise-date .projects__header-text {
+    display: none;
+  }
+
+  .projects__realise-date .projects__project {
+    width: 40%;
+    text-align: left;
+  }
+
+  .status__gauge {
+    display: none;
+  }
+
+  .projects__status {
+    width: 30%;
+    padding-right: 0px;
+  }
+
+  .projects__status .projects__header-text, .status__wrapper {
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  .status__value {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+
+}

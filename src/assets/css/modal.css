@@ -1,0 +1,76 @@
+.angular-modal .modal-body {
+  padding: 0;
+}
+
+.angular-modal .modal-dialog {
+  margin: 0;
+  margin-top: 100px;
+}
+
+.angular-modal .modal-content {
+  position: relative;
+  display: block;
+  width: auto;
+  pointer-events: all;
+  background-color: #fff;
+  background-clip: unset;
+  border: 0;
+  border-radius: 5px;
+}
+
+.angular-modal .modal-header {
+  padding: 0;
+  border: 0;
+}
+
+.angular-modal .modal-header > h2 {
+  padding-right: 40px;
+  flex: 1;
+  color: #fff;
+}
+
+
+.angular-modal .modal-header .close {
+  z-index: 1;
+  font-weight: 400;
+  font-size: 40px;
+  position: absolute;
+  top: 27px;
+  right: 40px;
+  padding: 0;
+  color: #D2D2D2;
+}
+
+.angular-modal--no-close .modal-header .close {
+  display: none;
+}
+
+.angular-modal .modal-dialog {
+  width: 700px;
+  max-width: 700px;
+}
+
+.angular-modal .modal-footer {
+  display: none;
+}
+
+.angular-modal .main-card {
+  transition: none;
+  top: 0
+}
+
+.angular-modal .main-card:hover {
+  top: 0
+}
+
+@media (max-width: 700px) {
+  .angular-modal .modal-dialog {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 0;
+    margin-top: 68px;
+    margin-bottom: 20px;
+  }
+}

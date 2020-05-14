@@ -1,0 +1,27 @@
+<div class="main-body">
+  <div [class.edit]="isEdit" class="dashboard-main-container">
+    <div class="main-header">
+      <div class="main-container main-header__buttons">
+        <a class="main-header__dashboard-button underline">Dashboard mode</a>
+        <a class="main-header__dashboard-only-button underline">Dashboard mode only</a>
+        <a class="main-header__edit-button inactive" (click)="changeMode(true)">Edit mode</a>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <app-dashboard class="main-container-block"></app-dashboard>
+    </div>
+  </div>
+  <div [class.edit]="isEdit" [class.hidden]="!isEdit" class="edit-main-container">
+    <div class="main-header">
+      <div class="main-container main-header__buttons">
+        <a class="main-header__dashboard-button inactive" (click)="changeMode(false)">Dashboard mode</a>
+        <a class="main-header__edit-button underline">Edit mode</a>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <app-edit class="main-container-block"></app-edit>
+    </div>
+  </div>
+</div>

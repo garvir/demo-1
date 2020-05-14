@@ -1,0 +1,120 @@
+<h2 class="cards__title">Highlights</h2>
+<div class="cards">
+  <ng-container *ngFor="let post of allPosts; let i = index">
+    <div class="main-card post">
+      <div class="edit__manage">
+        <div *ngIf="post.posted" class="edit__status">
+          <a class="edit__unpublish" (click)="unpublish(i)">UNPUBLISH</a>
+        </div>
+        <div *ngIf="!post.posted" class="edit__status">
+          <a class="edit__publish" (click)="publish(i)">PUBLISH</a>
+          <a class="edit__remove" (click)="remove(i)">REMOVE</a>
+        </div>
+      </div>
+      <ng-container *ngIf="!post.type">
+        <div class="post__title" *ngIf="!post.image">
+          {{post.title}}
+        </div>
+        <div class="post__title-img"
+             [ngStyle]="{'background-image': 'url('+post.image+')'}"
+             *ngIf="post.image">
+          <div>{{post.title}}</div>
+        </div>
+      </ng-container>
+
+      <div class="post__statistics" *ngIf="post.type === PostTypes.statistics">
+        <div class="post__statistics-info">
+          <img src="/assets/images/Group 21.png">
+          <div class="post__statistics-data">
+            <div class="post__statistics-cases"><span>{{post.cases}}%</span> cases</div>
+            <div class="post__statistics-text">completed ahead of schedule</div>
+          </div>
+        </div>
+        <span>{{post.lastWeek}}%</span> worse than last week
+      </div>
+
+      <div *ngIf="!post.posted" class="edit__status-visibility">
+        <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.933152 0.929059C0.720327 0.716235 0.720327 0.372442 0.933152 0.159618C1.14598 -0.053206 1.49523 -0.053206 1.70805 0.159618L10.6085 9.07094C10.8213 9.28377 10.8213 9.62756 10.6085 9.84038C10.3956 10.0532 10.0518 10.0532 9.83902 9.84038L8.35471 8.35607C7.62347 8.63984 6.8322 8.80355 6.00273 8.80355C3.27422 8.80355 0.944066 7.10641 0 4.71078C0.420191 3.63574 1.12415 2.70805 2.00819 2.00409L0.933152 0.929059ZM8.73132 4.71078C8.73132 3.20464 7.50894 1.98227 6.0028 1.98227C5.7245 1.98227 5.4571 2.03684 5.20062 2.11323L4.01645 0.929059C4.644 0.727149 5.30976 0.618009 6.0028 0.618009C8.73132 0.618009 11.0615 2.31514 12.0055 4.70532C11.629 5.66576 11.0287 6.50614 10.2702 7.17735L8.60035 5.5075C8.67675 5.25648 8.73132 4.98909 8.73132 4.71078ZM6.00277 7.43929C4.49663 7.43929 3.27426 6.21692 3.27426 4.71078C3.27426 4.29059 3.37249 3.89222 3.54165 3.54297L4.39841 4.39973C4.38203 4.49795 4.36566 4.60164 4.36566 4.71078C4.36566 5.61664 5.09691 6.34788 6.00277 6.34788C6.11191 6.34788 6.21014 6.33151 6.31382 6.30968L7.17058 7.16644C6.81587 7.34106 6.42296 7.43929 6.00277 7.43929ZM7.6234 4.53069C7.54155 3.76671 6.94128 3.1719 6.18275 3.09004L7.6234 4.53069Z"
+                fill="#DF4036"/>
+        </svg>
+        <span>not published</span>
+      </div>
+
+      <div class="post__author">
+        <img class="post__author-img" src="/assets/images/{{post.author.avatar}}">
+        <div>
+          <div class="post__author-name">{{post.author.name}}</div>
+          <span class="post__author-position">{{post.author.position}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="allPosts?.length < 12">
+    <div class="main-card post" (click)="postModal.open()">
+      <div class="edit__create">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M21 0C9.408 0 0 9.408 0 21C0 32.592 9.408 42 21 42C32.592 42 42 32.592 42 21C42 9.408 32.592 0 21 0ZM21 10.5C19.845 10.5 18.9 11.445 18.9 12.6V18.9H12.6C11.445 18.9 10.5 19.845 10.5 21C10.5 22.155 11.445 23.1 12.6 23.1H18.9V29.4C18.9 30.555 19.845 31.5 21 31.5C22.155 31.5 23.1 30.555 23.1 29.4V23.1H29.4C30.555 23.1 31.5 22.155 31.5 21C31.5 19.845 30.555 18.9 29.4 18.9H23.1V12.6C23.1 11.445 22.155 10.5 21 10.5ZM4.2 21C4.2 30.261 11.739 37.8 21 37.8C30.261 37.8 37.8 30.261 37.8 21C37.8 11.739 30.261 4.2 21 4.2C11.739 4.2 4.2 11.739 4.2 21Z"
+                fill="#6883E4" fill-opacity="0.2"/>
+        </svg>
+        <div class="edit__create-text">New post</div>
+      </div>
+      <div class="edit__create-button">
+        <span>CREATE</span>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
+<modal class="angular-modal" #postModal>
+  <ng-template #modalBody>
+    <div class="main-card form">
+      <div class="form__header">New post</div>
+      <div>
+        <label class="form__label">Message</label>
+        <input class="form__input" [(ngModel)]="title" type="text" name="title" placeholder="Title">
+        <textarea class="form__input" [(ngModel)]="body" name="body" rows="4" cols="30">Lorem ipsum dolor</textarea>
+
+        <label class="form__label">Photo</label>
+        <div class="form__input-upload">
+          <input class="form__input" (click)="openFileSelection()" [ngModel]="fileName" type="text" name="photo"
+                 placeholder="Select an image">
+          <input (change)="onFile()" class="form__input-file" id="file" type="file">
+          <span class="form__input-upload-button">upload</span>
+        </div>
+
+
+        <label class="form__label">Author</label>
+        <select [(ngModel)]="author" class="form__input" name="author">
+          <option selected disabled value="">Who said?</option>
+          <option *ngFor="let item of authors; let i = index" [value]="i">{{item.name}}</option>
+        </select>
+
+      </div>
+
+      <div class="form__footer">
+        <div class="notifications-toggle" (click)="toggle()">
+          <span [class.notifications-toggle__back--disabled]="!instantPublish"
+                class="notifications-toggle__back">
+          <span [class.notifications-toggle__toggle--disabled]="!instantPublish"
+                class="notifications-toggle__toggle"></span>
+          </span>
+          <span class="notifications-toggle__text">Instant publish</span>
+        </div>
+        <div class="form__footer-buttons">
+          <span class="form__cancel" (click)="postModal.close()">CANCEL</span>
+          <span class="form__cancel-or"> or</span>
+          <button [disabled]="!isFilled()" (click)="create(); postModal.close()" class="popup__close-button">Publish</button>
+        </div>
+
+      </div>
+
+
+    </div>
+  </ng-template>
+</modal>
+

@@ -1,0 +1,92 @@
+body {
+  overflow-x: hidden;
+  background-color: #f4f4f4;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  position: relative;
+  top: -3px;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.main-container-block {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: block;
+}
+
+.main-content {
+  position: relative;
+  display: flex;
+  top: 130px;
+}
+
+.main-body {
+  display: flex;
+  width: 200%;
+}
+
+.dashboard-main-container, .edit-main-container {
+  width: 100vw;
+  position: relative;
+  right: 0;
+  transition: right 0.4s ease-out;
+}
+
+.footer {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+
+
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #757575;
+}
+
+.edit {
+  right: 50%;
+}
+
+.hidden {
+  height: 1000px;
+  overflow: hidden;
+}
+
+app-edit {
+  margin-top: 70px !important;
+}
+
+.edit-main-container .footer {
+  margin-top: 30px;
+}
+
+@media (max-width: 1050px) {
+  .main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .edit-main-container{
+    display: none;
+  }
+
+  .main-body {
+    width: 100%
+  }
+
+  .main-header__edit-button {
+    display: none;
+  }
+}

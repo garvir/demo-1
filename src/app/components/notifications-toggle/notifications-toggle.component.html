@@ -1,0 +1,8 @@
+<h2 class="notifications-toggle__title">Notifications</h2>
+<div class="notifications-toggle" (click)="toggle()">
+  <span [class.notifications-toggle__back--disabled]="!notifications"
+        class="notifications-toggle__back">
+  <span [class.notifications-toggle__toggle--disabled]="!notifications" class="notifications-toggle__toggle"></span>
+</span>
+  <span class="notifications-toggle__text">Show all notifications</span>
+</div>

@@ -1,0 +1,58 @@
+<h2 class="cards__title">Highlights</h2>
+<div class="cards">
+  <ng-container *ngFor="let post of posts">
+    <div class="main-card post" (click)="postModal.open(); postToShow = post">
+
+      <ng-container *ngIf="!post.type">
+        <div class="post__title" *ngIf="!post.image">
+          {{post.title}}
+        </div>
+        <div class="post__title-img"
+             [ngStyle]="{'background-image': 'url('+post.image+')'}"
+             *ngIf="post.image">
+          <div>{{post.title}}</div>
+        </div>
+      </ng-container>
+
+      <div class="post__statistics" *ngIf="post.type === PostTypes.statistics">
+        <div class="post__statistics-info">
+          <img src="/assets/images/Group 21.png">
+          <div class="post__statistics-data">
+            <div class="post__statistics-cases"><span>{{post.cases}}%</span> cases</div>
+            <div class="post__statistics-text">completed ahead of schedule</div>
+          </div>
+        </div>
+        <span>{{post.lastWeek}}%</span> worse than last week
+      </div>
+
+      <div class="post__author">
+        <img class="post__author-img" src="/assets/images/{{post.author.avatar}}">
+        <div>
+          <div class="post__author-name">{{post.author.name}}</div>
+          <span class="post__author-position">{{post.author.position}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<modal class="angular-modal" #postModal>
+  <ng-template #modalBody>
+    <div class="main-card popup">
+      <div class="popup__img" *ngIf="postToShow.image"
+           [ngStyle]="{'background-image' : 'url('+postToShow.image+')'}"></div>
+      <div class="popup__header">{{postToShow.title}}</div>
+      <div class="popup__text">{{postToShow.body}}</div>
+      <div class="post__author">
+        <img class="post__author-img" src="/assets/images/{{postToShow.author.avatar}}">
+        <div>
+          <div class="post__author-name">{{postToShow.author.name}}</div>
+          <span class="post__author-position">{{postToShow.author.position}}</span>
+        </div>
+      </div>
+      <div class="popup__close">
+        <a class="popup__close-button" (click)="postModal.close()">CLOSE</a>
+      </div>
+    </div>
+  </ng-template>
+</modal>
